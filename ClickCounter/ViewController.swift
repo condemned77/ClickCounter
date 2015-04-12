@@ -33,8 +33,23 @@ class ViewController: UIViewController {
         var decrement_button = self.create_and_init_decrement_button()
         self.view.addSubview(decrement_button)
         
+        var color_change_button = self.create_and_init_color_change_button()
+        self.view.addSubview(color_change_button)
+        
         self.update_labels()
     }
+    
+    func create_and_init_color_change_button() -> UIButton {
+        let button = UIButton()
+        button.frame = CGRectMake(100, 300, 200, 60)
+        button.setTitle("change background", forState: .Normal)
+        button.setTitleColor(UIColor.orangeColor(), forState: .Normal)
+        button.addTarget(self, action: "toggle_background_color:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        return button
+    }
+    
+    
     
     func create_and_init_decrement_button() -> UIButton {
         let button = UIButton()
@@ -89,5 +104,17 @@ class ViewController: UIViewController {
     func decrement_count_on_label() {
         self.increment_and_decrement_counter--
         self.update_labels()
+    }
+    
+    func toggle_background_color(button: UIButton) {
+        if self.view.backgroundColor == UIColor.orangeColor(){
+            self.view.backgroundColor = UIColor.whiteColor()
+            button.setTitleColor(UIColor.orangeColor(), forState: .Normal)
+        }
+        else {
+            self.view.backgroundColor = UIColor.orangeColor()
+            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        }
+        
     }
 }
