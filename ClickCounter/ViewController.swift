@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     var click_counter = 0
     var increment_and_decrement_counter = 0
-    var count_label:UILabel!
+    @IBOutlet var count_label:UILabel!
     var increment_and_decrement_label:UILabel!
     
     
@@ -20,15 +20,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         //labels
-        self.create_and_init_count_label()
-        self.view.addSubview(self.count_label)
+//        self.create_and_init_count_label()
+//        self.view.addSubview(self.count_label)
 
         self.create_and_init_increment_and_decrement_label()
         self.view.addSubview(self.increment_and_decrement_label)
         
         //buttons
-        var increment_button = self.create_and_init_increment_button()
-        self.view.addSubview(increment_button)
+//        var increment_button = self.create_and_init_increment_button()
+//        self.view.addSubview(increment_button)
 
         var decrement_button = self.create_and_init_decrement_button()
         self.view.addSubview(decrement_button)
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
         return label
     }
     
-    func increment_count_on_labels () {
+    @IBAction func increment_count_on_labels () {
         self.click_counter++
         self.increment_and_decrement_counter++
         self.update_labels()
